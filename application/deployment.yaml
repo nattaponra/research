@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application-deployment
+  labels:
+    app: application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: application
+  template:
+    metadata:
+      labels:
+        app: application
+    spec:
+      containers:
+      - name: application
+        image: nattaponra/application:evalution02
+        ports:
+        - containerPort: 80
